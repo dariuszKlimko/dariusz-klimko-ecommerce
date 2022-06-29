@@ -1,0 +1,42 @@
+/**
+* Shows how you can use CSS to style your Element's container.
+* These classes are added to your Stripe Element by default.
+* You can override these classNames by using the options passed
+* to the P24BankElement component.
+* https://stripe.com/docs/js/elements_object/create_element?type=p24Bank#elements_create-options-classes
+*/
+
+.input1,
+.StripeElement {
+  height: 40px;
+  width: 300px;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+input {
+  padding: 10px 12px;
+}
+
+input:focus,
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+button.stripe-button-el{
+  background-color: blueviolet;
+}
+
+@media (max-width: 310px) {
+  .input1,
+.StripeElement {
+  height: 40px;
+  width: 90vw;
+}
+}
