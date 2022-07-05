@@ -11,6 +11,9 @@
 
 ## General info
 This is fullstack project and this is my second app.
+
+Here is deployed version: https://dariusz-klimko-ecommerce.herokuapp.com/
+
 ## Prerequire
  * [stripe](https://stripe.com/en-pl/) account (stripe_pubic_key, stripe_account_id, secret_key_stripe)
  * [mongodb](https://www.mongodb.com/) account (link to database)
