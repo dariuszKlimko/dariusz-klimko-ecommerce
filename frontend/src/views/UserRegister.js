@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
 import ServerResContext from '../contexts/ServerResContext'
@@ -17,7 +17,7 @@ const UserRegister = () => {
 
     const urlUserRegister = '/userRegister'
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('')
     const [password, setPassword]  =useState('')
@@ -40,7 +40,7 @@ const UserRegister = () => {
         const userData = {email, password}
         axios.post(urlUserRegister, userData)
         .then(response =>{
-        return response.data==='Email already exist'?setServerRes(response.data):alert('Check Your email for account verification')&setEmail('')&setPassword('')&setConfirmPassword('')&history.go(-1)
+        return response.data==='Email already exist'?setServerRes(response.data):alert('Check Your email for account verification')&setEmail('')&setPassword('')&setConfirmPassword('')&navigate('..')
         })
         .catch(error => console.log(error, 'error'))
     }

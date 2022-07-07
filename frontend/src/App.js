@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import './App.css'
 import Cookies from 'js-cookie'
@@ -443,53 +443,23 @@ const  App = () => {
               </Link>
             </div>
             <div className='mainPage'>
-                <Switch>
-                  <Route exact path="/" >
-                    <Home/>
-                  </Route>
-                  <Route path="/login" >
-                    <Login/>
-                  </Route>
-                  {userData&&<Route path="/userProfile" >
-                    <UserProfile/>
-                  </Route>}
-                  {userData&&<Route path="/changePassword" >
-                    <ChangePassword/>
-                  </Route>}
-                  {isAdmin&&<Route path="/usersDelete" >
-                    <UsersDelete/>
-                  </Route>}
-                  <Route path="/productCard/:_id" >
-                    <ProductCard/>
-                  </Route>
-                  {isAdmin&&<Route path="/addProductCard/:_id" >
-                    <AddProductCard/>
-                  </Route>}
-                  {isAdmin&&<Route path="/finalOrdersCard" >
-                    <FinalOrdersCard/>
-                  </Route>}
-                  <Route path="/userRegister" >
-                    <UserRegister/>
-                  </Route>
-                  <Route path="/shoppingCard/" >
-                    <ShoppingCard/>
-                  </Route>
-                  <Route path="/confirmationResetPasswordLink/:id" >
-                      <ResetPassword />
-                  </Route>
-                  <Route path="/paymentFail" >
-                    <PaymentFail/>
-                  </Route>
-                  <Route path="/confirmationUserRegister/:data" >
-                      <ConfirmationUserRegister />
-                  </Route>
-                  <Route path="/companyData" >
-                      <CompanyData />
-                  </Route>
-                  <Route path="*">
-                    <PageNotFound />
-                  </Route>
-                </Switch>
+                <Routes>
+                  <Route exact path="/" element={<Home/>}/>
+                  <Route path="/login"  element={<Login/>}/>
+                  {userData&&<Route path="/userProfile" element={<UserProfile/>}/>}
+                  {userData&&<Route path="/changePassword" element={<ChangePassword/>}/>}
+                  {isAdmin&&<Route path="/usersDelete" element={<UsersDelete/>}/>}
+                  <Route path="/productCard/:_id" element={<ProductCard/>}/>
+                  {isAdmin&&<Route path="/addProductCard/:_id" element={<AddProductCard/>}/>}
+                  {isAdmin&&<Route path="/finalOrdersCard" element={<FinalOrdersCard/>}/>}
+                  <Route path="/userRegister" element={<UserRegister/>}/>
+                  <Route path="/shoppingCard/" element={<ShoppingCard/>}/>
+                  <Route path="/confirmationResetPasswordLink/:id" element={<ResetPassword />}/>
+                  <Route path="/paymentFail" element={<PaymentFail/>}/>
+                  <Route path="/confirmationUserRegister/:data" element={<ConfirmationUserRegister />}/>
+                  <Route path="/companyData" element={<CompanyData />}/>
+                  <Route path="*" element={<PageNotFound />}/>
+                </Routes>
           <div className='isMobileHome'>
             {!isSmallScreen&&isAdmin&&<Tooltip title='Completed orders' placement="top-start" arrow>
               <IconButton component={Link} to="/finalOrdersCard">

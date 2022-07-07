@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
 import ServerResContext from '../contexts/ServerResContext'
@@ -20,7 +20,7 @@ const ChangePassword = () => {
     const urlCompareActualtPassword = '/compareActualtPassword'
     const urlChangePassword = '/changePassword'
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [password, setPassword]  =useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -69,7 +69,7 @@ const ChangePassword = () => {
         const id = userData[0]._id
         axios.put(urlChangePassword+'/'+id, {password}, config)
         .then(response =>{
-            return setPassword('')&setConfirmPassword('')&history.go(-1)
+            return setPassword('')&setConfirmPassword('')&navigate('..')
         })
         .catch(error => console.log(error, 'error'))
     }
