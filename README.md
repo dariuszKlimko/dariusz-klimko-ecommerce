@@ -75,7 +75,7 @@ Create folder "Ecommerce".
   npm install @stripe/react-stripe-js @stripe/stripe-js
   ```
   ```
-  npm install react-responsive axios js-cookie react-image-gallery react-router-dom@5.2.0 react-social-login-buttons
+  npm install react-responsive axios js-cookie react-image-gallery react-router-dom react-social-login-buttons
   ```
  * ### Backend
  In "Ecommerce" create folder "backend".
